@@ -1,0 +1,20 @@
+Twitter Content,Label,Date,Confidence Score
+aaaaaaaaaaaaaaaaaaaaa,sus_spam,10/29/20,48
+dsadad,con_spam,10/29/20,14
+In the knowledge Data Discovery model there is already a lump sum of data available to the system  whereas in UDD mod,con_spam,10/29/20,33
+"value of the key to be present in JSON so we can use this value in our system. In this case, we need to be sure that value is present for a key, and if it is none or not present, we use the default value",con_spam,10/29/20,52
+dasdasdadsada,sus_spam,10/29/20,51
+dsadasdasdas,con_spam,10/29/20,66
+"When I try to convert it to string, it's showing an error like",sus_spam,10/29/20,7
+"Conversion to a string is done with the builtin str() function, which basically calls the __str__() method of its paramet",sus_spam,10/29/20,29
+Reminder that if you go down,con_spam,10/29/20,79
+Reminder that if you go down 33% and up 33% you¡¯re still down 11%.,sus_spam,10/29/20,80
+fdfsfdfffdsfsd,sus_spam,10/29/20,49
+vcvxcvxcvxcvx,con_spam,10/29/20,23
+dasdadadad,con_spam,10/29/20,100
+czcczczzxcz,sus_spam,10/30/20,44
+dcxzczczxcz,con_spam,10/30/20,100
+qqqqqqqqqq,sus_benign,10/30/20,20
+qqqqqqqqqqqqqqqqqqqqqqqqqqqq,con_spam,10/30/20,100
+aaaaaaaaaaaaaaaaaaaaa,sus_spam,11/02/20,18
+aaaaaaaaaaaaaaaaaaaaa,sus_spam,11/02/20,77
