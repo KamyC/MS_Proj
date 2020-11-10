@@ -1,7 +1,4 @@
 from __future__ import print_function, division
-from future.utils import iteritems
-from builtins import range
-
 
 import numpy as np
 import pandas as pd
@@ -18,7 +15,7 @@ from wordcloud import WordCloud
 # file contains some invalid chars
 # depending on which version of pandas you have
 # an error may be thrown
-df = pd.read_csv('utkmls2/train.csv', encoding='ISO-8859-1')
+df = pd.read_csv('ml_algorithm/utkmls2/train.csv', encoding='ISO-8859-1')
 
 # drop unnecessary columns
 # df = df.drop(["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
@@ -64,7 +61,7 @@ model.fit(Xtrain, Ytrain)
 
 # print out accuracy
 print("train score:", model.score(Xtrain, Ytrain)) # accuracy
-print("test score:", model.score(Xtest, Ytest))
+# print("test score:", model.score(Xtest, Ytest))
 # exit()
 
 
@@ -79,8 +76,8 @@ def visualize(label):
   plt.axis('off')
   plt.show()
 
-# visualize('Spam')
-# visualize('Quality')
+visualize('Spam')
+visualize('Quality')
 
 
 # # see what we're getting wrong
@@ -98,12 +95,12 @@ def visualize(label):
 #   print(msg)
 
 
-# predict another dataset
+# # predict another dataset
 # df = pd.read_csv('utkmls2/test.csv', encoding='ISO-8859-1')
 # predictions = model.predict(count_vectorizer.transform(df['Tweet']))
-
+#
 # submission = pd.DataFrame({'Id':df['Id'],'Type':predictions})
 # submission['Type'] = submission['Type'].map({0:'Quality', 1:'Spam'})
-
+#
 # filename = 'predictions.csv'
 # submission.to_csv(filename,index=False)

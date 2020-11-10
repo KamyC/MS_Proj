@@ -18,14 +18,9 @@ body{
 	margin-left:2%;
 	font-weight: bold;
 }
-.banner a{
+.tag-item > a, .title > a, .sign-up > a, .sign > a {
 	text-decoration: none;
 	color: white
-}
-
-.banner .tags{
-	/*padding-top: 20px;*/
-	/*margin-top: 65px;*/
 }
 .tag-item{
 	display: inline-block;
