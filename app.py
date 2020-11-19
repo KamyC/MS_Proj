@@ -26,18 +26,18 @@ def detect():
     username = session.get('username')
     str_input = request.form.get('content')
     res = algorithm.detect_spam(str_input)
-    confScore = randrange(100)
+    confScore = 100
     time = tools.util.get_date()
     # write user, content, label, date, score to database
     label = "sus_benign"
-    if res:
+    if res[0]:
         label = "sus_spam"
     if 'detect' in request.form:
         if username:
             tools.database.write_for_user(username, str_input, label, time, confScore)
         else:
             tools.database.write_in(str_input,label)
-        if res:
+        if res[1]:
             return render_template('index.html', isSpam='Spam Warning!!!'+" Confidence Score: "+ str(confScore),userName="Welcome " + username)
         else:
             return render_template('index.html', notSpam='Safe! Not A Spam!' + " Confidence Score: "+ str(confScore), userName="Welcome " + username)
@@ -78,6 +78,23 @@ def toDashBoard():
     username = session.get('username')
     if username:
         return render_template('dash_board.html', userName="Welcome " + username)
+    else:
+        return redirect(url_for('toSignIn'))
+
+
+@app.route('/dash_history')
+def toHistory():
+    username = session.get('username')
+    if username:
+        return render_template('dash_history.html', userName="Welcome " + username)
+    else:
+        return redirect(url_for('toSignIn'))
+
+@app.route('/dash_visualization')
+def toVisualization():
+    username = session.get('username')
+    if username:
+        return render_template('dash_visualization.html', userName="Welcome " + username)
     else:
         return redirect(url_for('toSignIn'))
 
@@ -167,7 +184,7 @@ def api_post_detect():
     confScore = randrange(100)
     time = tools.util.get_date()
     label = "sus_benign"
-    if algorithm.detect_spam(str_input):
+    if algorithm.detect_spam(str_input)[0]:
         result ="This is a spam!!!"
         print(result)
         label = "sus_spam"

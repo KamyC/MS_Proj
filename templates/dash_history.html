@@ -9,9 +9,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/structure-style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/overview.css') }}">
   <script defer src="static/css/all.min.js"></script>
-
 </head>
 <body>
   <div class="row banner">
@@ -45,11 +43,11 @@
           <h3>TweetSafe</h3>
         </div>
          <ul class="list-unstyled components">
-            <li class="box active">
+            <li class="box ">
                 <i class="fas fa-user fa-2x"></i>
                 <a href="{{ url_for('toDashBoard')}}">Overview</a>
             </li>
-            <li class="box">
+            <li class="box active">
               <i class="fas fa-history fa-2x"></i>
               <a href="{{ url_for('toHistory')}}">History</a>
             </li>
@@ -60,51 +58,7 @@
         </ul>
       </nav>
       <div class="main-content">
-        <div class="col-6 left">
-          <div class="up">
-            <div class="panel">Total Search Number</div>
-            <div class="panel">Spam Rate</div>
-          </div>
-          <div class="down">
-            <div class="panel">Search History</div>
-            <div class="panel">Pie Chart</div>
-          </div>
-        </div>
-        <div class="col-6 right">
-          <h4>Review Detect History</h4>
-          <ul class="list-unstyled components">
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality</p>
-            </li>
-            <li class="spam">
-              <p>This is spam This is spam This is spam This is spam This is spam This is spam This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality</p>
-            </li>
-            <li class="spam">
-              <p>This is spam This is spam This is spam This is spam This is spam This is spam This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-          </ul>
-        </div>
+        <h2>Users can check the past detecting tweets and change the tweet's label.</h2>
       </div>
     </div>
   </div>
