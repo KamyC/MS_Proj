@@ -38,7 +38,7 @@ def train_and_return_accuracy(Xtrain, Ytrain, model):
   
   loop_times = 1 #change to test
   for cnt in range(loop_times):
-    batch_size = 5 #int(len(Xtrain_df) / 2)  #change to test
+    batch_size = 1 #int(len(Xtrain_df) / 2)  #change to test
     batch_id = 1
     
     while batch_id * batch_size <= len(Ytrain_df):
