@@ -8,7 +8,7 @@ dsadasdasdas,con_spam,10/29/20,66
 "When I try to convert it to string, it's showing an error like",sus_spam,10/29/20,7
 "Conversion to a string is done with the builtin str() function, which basically calls the __str__() method of its paramet",sus_spam,10/29/20,29
 Reminder that if you go down,con_spam,10/29/20,79
-Reminder that if you go down 33% and up 33% you¡¯re still down 11%.,sus_spam,10/29/20,80
+Reminder that if you go down 33% and up 33% youï¿½ï¿½re still down 11%.,sus_spam,10/29/20,80
 fdfsfdfffdsfsd,sus_spam,10/29/20,49
 vcvxcvxcvxcvx,con_spam,10/29/20,23
 dasdadadad,con_spam,10/29/20,100
@@ -37,7 +37,7 @@ czxczxczzx,sus_benign,11/05/20,52
 "Tesla Goes Bankrupt Palo Alto, California, April 1, 2018 -- Despite intense efforts to raise money, including a last-ditch mass sale of Easter Eggs, we are sad to report that Tesla has gone completely and totally bankrupt. So bankrupt, you can't believe it.",sus_spam,11/05/20,23
 420 is ten times better than 42,sus_benign,11/05/20,21
 "Tesla Goes Bankrupt Palo Alto, California, April 1, 2018 -- Despite intense efforts to raise money, including a last-ditch mass sale of Easter Eggs, we are sad to report that Tesla has gone completely and totally bankrupt. So bankrupt, you can't believe it.",sus_benign,11/05/20,47
-Falcon 9¡¯s first stage lands on the Of Course I Still Love You droneship,sus_benign,11/05/20,66
+Falcon 9ï¿½ï¿½s first stage lands on the Of Course I Still Love You droneship,sus_benign,11/05/20,66
 "Elon was found passed out against a Tesla Model 3, surrounded by ""Teslaquilla"" bottles, the tracks of dried tears still visible on his cheeks.",sus_benign,11/05/20,4
 "This is not a forward-looking statement, because, obviously, what's the point?",sus_benign,11/05/20,59
 "Elon was found passed out against a Tesla Model 3, surrounded by ""Teslaquilla"" bottles, the tracks of dried tears still visible on his cheeks.",sus_benign,11/05/20,97
@@ -65,7 +65,7 @@ There are still thousands of people in California that haven't done this yet...,
 dsadad,sus_benign,11/05/20,80
 aaaaaaaaaaaaaaaaaaaaa,sus_benign,11/05/20,64
 "Twitter is out of control, made possible through the government gift of Section 230!",sus_benign,11/06/20,83
-"So now the Democrats are working to gain control of the U.S. Senate through their actions on John James, David Perdue, and more. Would End the Filibuster, ¡°Life¡±, 2A, and would Pack and Rotate the Court. Presidency becomes even more important. We will win!",sus_spam,11/06/20,38
+"So now the Democrats are working to gain control of the U.S. Senate through their actions on John James, David Perdue, and more. Would End the Filibuster, ï¿½ï¿½Lifeï¿½ï¿½, 2A, and would Pack and Rotate the Court. Presidency becomes even more important. We will win!",sus_spam,11/06/20,38
 "With the attack by the Radical Left Dems on the Republican Senate, the Presidency becomes even more important!",sus_spam,11/06/20,20
 Joe is likely to pull ahead in PA by 7:30 am. Today is going to be a celebration.,sus_benign,11/06/20,92
 A New Banner is needed Neither hard left nor right,sus_spam,11/06/20,79
@@ -76,7 +76,7 @@ Where are the missing military ballots in Georgia? What happened to them?,sus_sp
 cxzczcxzczcxzcxzczx,sus_benign,11/06/20,98
 Where are the missing military ballots in Georgia? What happened to them?,sus_spam,11/06/20,88
 Recruiting ace engineers for Giga Berlin! Will interview in person tomorrow on site. Send resume to 25Guns@Tesla.com,sus_benign,11/06/20,10
-"¡°This is what we know. We have to go back to the state level and how this morass came to be in the first instance. The Governor, Wolf, and the State Supreme Court, flagrantly violated the Constitution of the U.S. The power to set these rules and regulations is vested in the",sus_spam,11/06/20,74
+"ï¿½ï¿½This is what we know. We have to go back to the state level and how this morass came to be in the first instance. The Governor, Wolf, and the State Supreme Court, flagrantly violated the Constitution of the U.S. The power to set these rules and regulations is vested in the",sus_spam,11/06/20,74
 "Your first glimpse of the Arachnid Rider and Armored Advanced Suits, two all-new looks for Marvel's Spider-Man Remastered.",sus_benign,11/06/20,73
 aaadadsdad,sus_benign,11/11/20,26
 czczczczxczx,con_spam,11/11/20,100
@@ -84,8 +84,21 @@ aaaaadadadsdas,sus_benign,11/12/20,23
 hfdhddgdgdg,sus_benign,11/12/20,62
 PlayStation 5 has arrived! Learn all about our next-gen console in the Ultimate FAQ,sus_benign,11/12/20,99
 "The pandemic is surging, and tens of millions of Americans are facing economic devastation",sus_spam,11/12/20,59
-If you¡¯re for Universal Basic Income I¡¯m with you,sus_spam,11/12/20,100
 How will you pay for that?,sus_spam,11/12/20,100
 That would be an edge case of an edge case but consider this,sus_spam,11/12/20,100
 @champagne_ste hello! Could we order three gas? Could you take all bottles away too as they're empty,sus_spam,11/12/20,100
 which company did you pick?,sus_spam,11/12/20,100
+this is a test,sus_benign,11/20/20,100
+is this a spam,sus_spam,11/20/20,100
+hello world,sus_spam,11/20/20,100
+I love coding,sus_spam,11/20/20,100
+your IRS refund is pending,sus_spam,11/20/20,100
+this is a test if return is string or not,sus_benign,11/20/20,100
+i love coding so much,sus_benign,11/20/20,100
+congratulation you won $1000,sus_spam,11/20/20,100
+i love coding,sus_benign,11/20/20,100
+congratulation you won $1000,sus_spam,11/20/20,100
+this is a test if return is string or not,sus_benign,11/20/20,100
+here we go,sus_benign,11/20/20,100
+this is a test,sus_benign,11/20/20,100
+congratulation you won $1000,sus_spam,11/20/20,100

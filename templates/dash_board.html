@@ -7,11 +7,104 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="static/css/Chart.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/structure-style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/overview.css') }}">
   <script defer src="static/css/all.min.js"></script>
+  <script>
+     window.onload= function (){
+        //for totoal search number
+        var data = JSON.parse('{{ data | tojson | safe}}');
+        console.log(data)
+        //for spam rate
+        var spam_cnt = data["spam_cnt"]
+        var benign_cnt = data["benign_cnt"]
 
+        new Chart(document.getElementById('spamRate'), {
+        type: 'bar',
+        data: {
+            labels: ['Spam', 'Benign'],
+            datasets: [{
+                label:'Count of Each Tweets',
+                data: [spam_cnt, benign_cnt],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+        });
+
+        //for search history
+        var time_cnt = data["time_cnt"]
+        time_line = []
+        count_line = []
+        Object.keys(time_cnt).forEach(function(key) {
+            time_line.push(key)
+            count_line.push(time_cnt[key])
+        });
+        new Chart(document.getElementById("searchHistory"), {
+          type: 'line',
+          data: {
+            labels: time_line,
+            datasets: [{
+                data: count_line,
+                label: "Count",
+                borderColor: "#3e95cd",
+                fill: false
+              },
+            ]
+          },
+          options: {
+              legend: {
+                display: false
+            },
+          }
+        });
+
+        //for pie chart
+        new Chart(document.getElementById("pieChart"), {
+          type: 'pie',
+          data: {
+            labels: ['Spam', 'Benign'],
+            datasets: [{
+              data: [spam_cnt, benign_cnt],
+              backgroundColor: [ '#36A2EB','#FF6384']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            plugins: {
+              labels: {
+                render: 'percentage',
+                fontColor: ['green', 'white'],
+                precision: 2
+              }
+            },
+          }
+      });
+    }
+  </script>
 </head>
 <body>
   <div class="row banner">
@@ -62,47 +155,35 @@
       <div class="main-content">
         <div class="col-6 left">
           <div class="up">
-            <div class="panel">Total Search Number</div>
-            <div class="panel">Spam Rate</div>
+            <div class="panel">
+              <div>
+                <p>Total Search Number</p>
+                <p style="font-size: 100px; text-align: center">{{total_number}}<span style="font-size: 15px"> times </span></p>
+                <p>Over Past 30 days</p>
+              </div>
+            </div>
+            <div class="panel">
+              <canvas id="spamRate" width="250" height="180"></canvas>
+            </div>
           </div>
           <div class="down">
-            <div class="panel">Search History</div>
-            <div class="panel">Pie Chart</div>
+            <div class="panel">
+              <canvas id="searchHistory" width="800" height="450"></canvas>
+            </div>
+            <div class="panel">
+              <canvas id="pieChart" width="800" height="450"></canvas>
+            </div>
           </div>
         </div>
+
         <div class="col-6 right">
           <h4>Review Detect History</h4>
           <ul class="list-unstyled components">
+            {% for tweet in tweets %}
             <li class="spam">
-              <p>This is spam</p>
+              {{tweet}}
             </li>
-            <li class="spam">
-              <p>This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality</p>
-            </li>
-            <li class="spam">
-              <p>This is spam This is spam This is spam This is spam This is spam This is spam This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality This is quality</p>
-            </li>
-            <li class="spam">
-              <p>This is spam This is spam This is spam This is spam This is spam This is spam This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
-            <li class="spam">
-              <p>This is spam</p>
-            </li>
+            {% endfor %}
           </ul>
         </div>
       </div>

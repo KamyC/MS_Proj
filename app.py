@@ -30,14 +30,14 @@ def detect():
     time = tools.util.get_date()
     # write user, content, label, date, score to database
     label = "sus_benign"
-    if res[0]:
+    if res:
         label = "sus_spam"
     if 'detect' in request.form:
         if username:
             tools.database.write_for_user(username, str_input, label, time, confScore)
         else:
             tools.database.write_in(str_input,label)
-        if res[1]:
+        if res:
             return render_template('index.html', isSpam='Spam Warning!!!'+" Confidence Score: "+ str(confScore),userName="Welcome " + username)
         else:
             return render_template('index.html', notSpam='Safe! Not A Spam!' + " Confidence Score: "+ str(confScore), userName="Welcome " + username)
@@ -76,8 +76,13 @@ def toSupportPage():
 @app.route('/dash_board')
 def toDashBoard():
     username = session.get('username')
+    print(username)
+    total_number = tools.util.get_total_number(username)
+    data = tools.util.find_user_information(username)
+    tweets = data["past_ten_tweets"]
+    print(data)
     if username:
-        return render_template('dash_board.html', userName="Welcome " + username)
+        return render_template('dash_board.html', userName="Welcome " + username, total_number = total_number, data = data, tweets = tweets)
     else:
         return redirect(url_for('toSignIn'))
 
@@ -123,17 +128,18 @@ def hasSignedUp():
         return render_template('sign_in.html', allow ="Thank you for signing up. You can log in now")
 
 # sign in
-@app.route('/dash_board',methods=['POST'] )
+@app.route('/home',methods=['POST'] )
 def hasSignedIn():
     emailInput = request.form.get('emailInput')
     pswInput = request.form.get('pswInput')
     userInfo = tools.database.find_user_in_temp_database(emailInput, pswInput)
+    print(userInfo)
     if len(userInfo) == 0:
         return render_template('sign_in.html', warning ="User Not Found!" )
 
     session['username'] = userInfo[0]
     session.permanent = True
-    return render_template('dash_board.html', userName = "Welcome " +userInfo[0])
+    return render_template('index.html', userName = "Welcome " +userInfo[0])
 
 # extension sign in
 @app.route('/extension_sign',methods=['POST'])
