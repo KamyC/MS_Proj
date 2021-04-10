@@ -9,6 +9,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/structure-style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dash-visualization.css') }}">
   <script defer src="static/css/all.min.js"></script>
 </head>
 <body>
@@ -34,7 +35,7 @@
       <p class="sign-up"><a href="{{ url_for('toSignIn')}}">{{signIn}}</a></p>
       <p class="sign-up"><a href="{{ url_for('toSignUp')}}">{{singUp}}</a></p>
       {% endif %}
-      </div>
+    </div>
   </div>
   <div class="main">
     <div class="wrapper">
@@ -57,10 +58,18 @@
             </li>
         </ul>
       </nav>
-      <div class="main-content">
-        <h2>Visualized Image</h2>
-        <img src="/static/img/myplot1.png">
-        <img src="/static/img/myplot2.png">
+      <div class="cloud-container">
+        <p style="font-size: 24px; margin-left: 20px; font-weight: bold;">Spam and Benign Word Cloud</p>
+        <div class="cloud-imgs">
+          <div class="spam-box">
+            <p style="font-size: 22px;font-weight: bold; text-align: center; color: coral ">Spam Word Cloud</p>
+            <img src="static/img/{{ spamWordCloud }}">
+          </div>
+          <div class="benign-box">
+            <p style="font-size: 22px;font-weight: bold; text-align: center; color: aquamarine" >Benign Word Cloud</p>
+            <img src="static/img/{{ benignWordCloud }}">
+          </div>
+        </div>
       </div>
     </div>
   </div>

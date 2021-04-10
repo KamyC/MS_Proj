@@ -1,6 +1,9 @@
 .spam > p{
     margin-bottom: 0;
 }
+.benign > p{
+    margin-bottom: 0;
+}
 .left{
     padding:10px;
 }
@@ -37,4 +40,38 @@
     line-height: 1.5rem;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    color:red;
+}
+.benign{
+    border-bottom: #2b3137 dashed 1px;
+    line-height: 1.5rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    color:lightgreen;
+}
+.font-bold{
+    font-weight: bold;
+    margin-left: 3px;
+    white-space:nowrap
+}
+.select-date{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.select-date > p {
+    margin-bottom: 0px;
+}
+
+#getDateFrame{
+    margin-left: 10px;
+}
+.expand{
+    border: 1px solid black;
+    background: none;
+    margin-left: 5px;
+    margin-right: 5px;
 }

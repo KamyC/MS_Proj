@@ -4,6 +4,7 @@
     align-items: stretch;
     height: 100%;
 }
+
 .left{
     height: 100%;
     /*border: 1px solid red;*/
@@ -58,4 +59,8 @@ a:hover, a:focus {
 }
 .active{
     border: 2px solid white;
+}
+.main{
+
+    min-height: 670px;
 }

@@ -1,7 +1,7 @@
 # from creme import compose
 # from creme import feature_extraction
 # from creme import naive_bayes
-from river import metrics
+# from river import metrics
 #
 # from sklearn.model_selection import train_test_split
 #

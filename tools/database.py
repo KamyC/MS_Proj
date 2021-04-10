@@ -1,40 +1,79 @@
-import csv
-import os.path
-import tools.util
+import sqlite3 as sql
 
-def write_in(str , label):
-    with open("tempDatabase/temp.csv", "a", newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        row = [str,label]
-        writer.writerow(row)
 
-def write_user_to_temp_database(user_info_list):
-    with open("tempDatabase/users.csv", "a", newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(user_info_list)
+def init_tweet_table(username):
+    conn = sql.connect('database.db')
+    conn.execute('CREATE TABLE IF NOT EXISTS '+username+' (ID integer primary key AUTOINCREMENT, Content TEXT, Label TEXT, Date Date, Score TEXT)')
+    conn.close()
 
-def find_user_in_temp_database(emailInput, pswInput):
-    with open("tempDatabase/users.csv", "r", newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        next(reader)
-        userInfo = []
-        for line in reader:
-            if (emailInput == line[1]) and (pswInput == line[2]):
-                userInfo = line
-                return userInfo
-        return userInfo
+def init_public_table():
+    conn = sql.connect('database.db')
+    conn.execute('CREATE TABLE IF NOT EXISTS public_tweet (ID integer primary key AUTOINCREMENT, Content TEXT, Label TEXT, Date Date, Score TEXT)')
+    print("init table")
+    conn.close()
 
-def write_new_in_list(list,dest):
-    tag_list = ["Twitter Content","Label","Date","Confidence Score"]
-    with open(dest, 'w', newline='') as csvfile:
-        wr = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
-        wr.writerow(tag_list)
-        wr.writerow(list)
+def insert_into_sql(username,content,label,date,score):
+    try:
+        with sql.connect("database.db") as con:
+            cur = con.cursor()
+            cur.execute("INSERT INTO "+username+" (Content,Label,Date,Score) VALUES (?,?,?,?)", ( content, label, date, score))
+            con.commit()
+            msg = "Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in insert operation"
+    finally:
+        print(msg)
+        con.close()
 
-def write_for_user(user,content, label, date, score):
-    file_name = "tempDatabase/"+user+".csv"
-    list = [content,label,date,score];
-    if os.path.exists(file_name):
-        tools.util.append_in_list(list,file_name)
-    else:
-        write_new_in_list(list, file_name)
+def insert_into_public(content,label,date,score):
+    try:
+        with sql.connect("database.db") as con:
+            cur = con.cursor()
+            cur.execute("INSERT INTO public_tweet (Content,Label,Date,Score) VALUES (?,?,?,?)", (content, label, date, score))
+            con.commit()
+            msg = "Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in insert operation"
+    finally:
+        print(msg)
+        con.close()
+
+def write_to_public(content,label,date,score):
+    init_public_table()
+    insert_into_public(content,label,date,score)
+
+def write_user_to_database(user_info_list):
+    conn = sql.connect('database.db')
+    conn.execute('CREATE TABLE IF NOT EXISTS users (ID integer primary key AUTOINCREMENT, Username TEXT, Email TEXT, Password TEXT)')
+    Username = user_info_list[0]
+    Email = user_info_list[1]
+    Password = user_info_list[2]
+    try:
+        with sql.connect("database.db") as con:
+            cur = con.cursor()
+            cur.execute("INSERT INTO users (Username,Email,Password) VALUES (?,?,?)", (Username, Email, Password))
+            con.commit()
+            msg = "User Record successfully added"
+    except:
+        con.rollback()
+        msg = "error in User insert operation"
+    finally:
+        print(msg)
+        con.close()
+    conn.close()
+
+def find_user_in_database(emailInput, pswInput):
+    conn = sql.connect('database.db')
+    userInfo = []
+    with sql.connect("database.db") as con:
+        cur = con.cursor()
+        cur.execute("SELECT * FROM users WHERE Email = (?) AND Password = (?)",(emailInput,pswInput))
+        try:
+            userInfo = cur.fetchone()
+        except TypeError:
+            print("did not find it")
+            pass
+    conn.close()
+    return userInfo
